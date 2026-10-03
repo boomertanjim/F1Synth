@@ -9,8 +9,17 @@
         const c = document.querySelector("#c")
         const x = c.getContext("2d")
 
+        // x.fillStyle = "white";
+        // x.strokeStyle = "white";
+        // x.beginPath()
+        // x.moveTo(100,50)
+        // x.lineTo(500, 50)
+        // x.stroke()
+
+        x.lineWidth = 30
+        x.strokeStyle = "white";
         x.beginPath()
-        x.ellipse(300, 200, 200, 100, 0, 0, Math.PI*2)
+        x.roundRect(100, 50, 400, 200, 50)
         x.stroke()
     </script>
 </body>
