@@ -3,24 +3,70 @@
     <title>Document</title>
 </head>
 <body style="background: #0B0F19;display: flex;justify-content: center; align-items: center; color: white; height: 100vh;">
-    <canvas id="c" width="600" height="400"></canvas>
+    <canvas id="c" width="600" height="600"></canvas>
 
     <script>
         const c = document.querySelector("#c")
         const x = c.getContext("2d")
+        let angle = 0
+        const buttons = [
+            {x:150, y: 500, color: "red"},
+            {x:300, y: 500, color: "green"},
+            {x:450, y: 500, color: "blue"}
+        ]
 
-        // x.fillStyle = "white";
-        // x.strokeStyle = "white";
-        // x.beginPath()
-        // x.moveTo(100,50)
-        // x.lineTo(500, 50)
-        // x.stroke()
+        let circles = [
+            [[0], 60, "red"],
+            [[10], 100, "green"],
+            [[3], 140, "blue"]
+        ]
 
-        x.lineWidth = 30
-        x.strokeStyle = "white";
-        x.beginPath()
-        x.roundRect(100, 50, 400, 200, 50)
-        x.stroke()
+
+        function animate(){
+            x.clearRect(0, 0, c.width, c.height)
+            for(let i=0; i < 3; i++){
+                x.lineWidth = 5
+                x.strokeStyle = "white";
+                x.beginPath()
+                x.arc(300, 300, (60 + 40 * i), 0, 2 *Math.PI)
+                x.stroke()
+            }
+            
+            for(let i=0; i<3; i++){
+                circles[i][0].forEach((b,j)=>{
+                    const m = 300 + circles[i][1] * Math.cos(b)
+                    const n = 300 + circles[i][1] * Math.sin(b)
+
+                    x.fillStyle=circles[i][2];
+                    x.beginPath()
+                    x.arc(m, n, 8, 0, Math.PI * 2)
+                    x.fill()
+
+                    circles[i][0][j] += 0.06
+                })
+            }
+            angle += 0.06
+
+            const a = 300 + 60 * Math.cos(angle)
+            const b = 300 + 60 * Math.sin(angle)
+
+            x.fillStyle="red";
+            x.beginPath()
+            x.arc(a, b, 8, 0, Math.PI * 2)
+            x.fill()
+
+            buttons.forEach(b=>{
+                x.fillStyle=b.color;
+                x.beginPath()
+                x.arc(b.x, b.y, 15, 0, Math.PI * 2)
+                x.fill()
+            })
+
+            requestAnimationFrame(animate)
+
+        }
+
+        animate()
     </script>
 </body>
 </html>
