@@ -40,12 +40,7 @@
         const audio = new AudioContext()
         let speed = 0.08
         let playing = false
-        const buttons = [
-            {x:800, y: 150, color: "#ff6961"},
-            {x:800, y: 250, color: "#77dd77"},
-            {x:800, y: 350, color: "#1b85b8"},
-            {x:800, y: 450, color: "#aec6cf"},
-        ]
+        const button = {x:800, y: 300, color: "#aec6cf"}
         
         let circles = [
             [[0, 40], 60, "#ff6961", 0],
@@ -106,13 +101,11 @@
                     if(newB>=Math.PI*2)circles[i][0][j] -= Math.PI*2
                 })
             }
-            
-            buttons.forEach(b=>{
-                x.fillStyle=b.color;
-                x.beginPath()
-                x.arc(b.x, b.y, 20, 0, Math.PI * 2)
-                x.fill()
-            })
+
+            x.fillStyle=button.color;
+            x.beginPath()
+            x.arc(button.x, button.y, 20, 0, Math.PI * 2)
+            x.fill()
             
             
             requestAnimationFrame(animate)
@@ -120,27 +113,32 @@
         }
         c.onclick=e=>{
             audio.resume()
-            const m=e.offsetX
-            const n=e.offsetY
-
-            for(let i=0; i<3; i++){
-                circles[i][0].forEach((b,j)=>{
-                    if(Math.hypot(m-(500 + circles[i][1] * Math.cos(b)), n-(300 + circles[i][1] * Math.sin(b))) < 10){
-                        circles[i][0].splice(j, 1)
-                        j--
-                    }
-                })
+            let m=e.offsetX
+            let n=e.offsetY
+            let b = Math.atan2(n-300, m-500)
+            if(b<0){
+                b+=Math.PI * 2
             }
 
-            buttons.forEach((b,j)=>{
-                if(Math.hypot(m-b.x, n-b.y)<20){
-                    if(b.y == 450){
-                        playing = !playing
-                    } else{
-                        circles[j][0].push(Math.PI)
+            for(let i=0; i<3; i++){
+                for(let j=0; j<circles[i][0].length;j++){
+                    let a = circles[i][0][j]
+                    if(Math.hypot(m-(500 + circles[i][1] * Math.cos(a)), n-(300 + circles[i][1] * Math.sin(a))) < 10){
+                        circles[i][0].splice(j, 1)
+                        return
                     }
                 }
-            })
+                
+                if(Math.abs(Math.hypot(m-500,n-300)-(60 + 40*i)) < 10){
+                    circles[i][0].push(b)
+                    return
+                }
+            }
+
+            if(Math.hypot(m-button.x, n-button.y)<20){
+                playing=!playing
+            }
+
         }
 
         s.oninput=e=>{speed=e.target.value/100}
