@@ -53,15 +53,49 @@
             let g = audio.createGain()
             
             if(t==0){
-                o.frequency.value = 150
-                o.frequency.exponentialRampToValueAtTime(40, audio.currentTime+.1)
-            }else{o.frequency.value=t==1?180:300}
+                o.frequency.setValueAtTime(180, audio.currentTime)
+                o.frequency.exponentialRampToValueAtTime(42, audio.currentTime+.12)
+                g.gain.setValueAtTime(.5, audio.currentTime)
+                g.gain.exponentialRampToValueAtTime(.01, audio.currentTime+.2)
+                o.connect(g).connect(audio.destination)
+                o.start()
+                o.stop(audio.currentTime+.2)
+            }else if(t == 1){
+                let b=audio.createBuffer(1, audio.sampleRate*.12, audio.sampleRate)
+                let d=b.getChannelData(0)
+                for(let i=0; i<d.length;i++){
+                    d[i] = Math.random()*2-1
+                }
 
-            g.gain.value = .15
-            o.connect(g).connect(audio.destination)
-            
-            o.start()
-            o.stop(audio.currentTime + .1)
+                let n = audio.createBufferSource()
+                let f = audio.createBiquadFilter()
+
+                f.type = "highpass"
+                f.frequency.value=1200
+                g.gain.setValueAtTime(.25, audio.currentTime)
+                g.gain.exponentialRampToValueAtTime(.01, audio.currentTime+.12)
+
+                n.buffer=b
+                n.connect(f).connect(g).connect(audio.destination)
+                n.start()
+            } else{
+                let b=audio.createBuffer(1, audio.sampleRate*.05, audio.sampleRate)
+                let d=b.getChannelData(0)
+                for(let i=0; i<d.length;i++){
+                    d[i] = Math.random()*2-1
+                }
+
+                let n = audio.createBufferSource()
+                let f = audio.createBiquadFilter()
+                f.type = "highpass"
+                f.frequency.value=5000
+                g.gain.setValueAtTime(.12, audio.currentTime)
+                g.gain.exponentialRampToValueAtTime(.01, audio.currentTime+.05)
+
+                n.buffer=b
+                n.connect(f).connect(g).connect(audio.destination)
+                n.start()
+            }
         }
         
         function animate(){
