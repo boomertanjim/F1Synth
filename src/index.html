@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 <head>
     <title>Document</title>
+    <style>
+        body{
+            background: #0B0F19;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        #s{
+            appearance: none;
+            width: 160px;
+            height: 5px;
+            border-radius: 5px;
+            background: #555;
+        }
+        #s::-webkit-slider-thumb{
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: white;
+        }
+    </style>
 </head>
-<body style="background: #0B0F19;display: flex;justify-content: center; align-items: center; color: white; min-height: 100vh; flex-direction: column;">
+<body>
     <canvas id="c" width="1000" height="600"></canvas>
     <input type="range" id="s" min="1" max="20" value="8">
     <h2>Click to Start</h2>
@@ -15,16 +40,16 @@
         let speed = 0.08
         let playing = true
         const buttons = [
-            {x:800, y: 150, color: "red"},
-            {x:800, y: 250, color: "green"},
-            {x:800, y: 350, color: "blue"},
-            {x:800, y: 450, color: "grey"},
+            {x:800, y: 150, color: "#ff6961"},
+            {x:800, y: 250, color: "#77dd77"},
+            {x:800, y: 350, color: "#1b85b8"},
+            {x:800, y: 450, color: "#aec6cf"},
         ]
         
         let circles = [
-            [[0, 40], 60, "red", 440],
-            [[10], 100, "green", 523.25],
-            [[20], 140, "blue", 659.25]
+            [[0, 40], 60, "#ff6961", 440],
+            [[10], 100, "#77dd77", 523.25],
+            [[20], 140, "#1b85b8", 659.25]
         ]
 
         function playNote(freq){
@@ -63,7 +88,7 @@
                     
                     x.fillStyle=circles[i][2];
                     x.beginPath()
-                    x.arc(m, n, 8, 0, Math.PI * 2)
+                    x.arc(m, n, 10, 0, Math.PI * 2)
                     x.fill()
                     let oldB = circles[i][0][j]
                     if(playing){
