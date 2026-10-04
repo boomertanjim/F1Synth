@@ -8,6 +8,9 @@ F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtron
 
 ### Screenshots
 
+<img width="1896" height="873" alt="image" src="https://github.com/user-attachments/assets/7aa35ef4-9bf8-496e-87e9-feb3f1e0eab1" />
+
+
 ## How To Use
 
 - There are three orbitals and each of them represent kick, snare and hi-hat from the smallest to largest
