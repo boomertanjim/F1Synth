@@ -119,7 +119,14 @@
             const m=e.offsetX
             const n=e.offsetY
 
-            console.log(m, n)
+            for(let i=0; i<3; i++){
+                circles[i][0].forEach((b,j)=>{
+                    if(Math.hypot(m-(500 + circles[i][1] * Math.cos(b)), n-(300 + circles[i][1] * Math.sin(b))) < 10){
+                        circles[i][0].splice(j, 1)
+                        j--
+                    }
+                })
+            }
 
             buttons.forEach((b,j)=>{
                 if(Math.hypot(m-b.x, n-b.y)<20){
