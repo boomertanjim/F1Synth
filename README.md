@@ -4,12 +4,11 @@ F1Synth is a 3kb drum sequencer capable of running in the browser
 
 ## Description
 
-F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtronica.com/pages/new-device-orbita?srsltid=AU7gw4UXi7a3Y20xtRgwd-ixSaXxkbYBjw_thDXzKmVfv9UJunpiqhLW) that plays kicks, snares and hi-hats based on a circle's position in an orbit.This project is roughly 3034 bytes and can be run completely in a browser.
+F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtronica.com/pages/new-device-orbita?srsltid=AU7gw4UXi7a3Y20xtRgwd-ixSaXxkbYBjw_thDXzKmVfv9UJunpiqhLW) that plays kicks, snares and hi-hats based on a circle's position in an orbit. This project is roughly 3034 bytes and can be run completely in a browser.
 
 ### Screenshots
 
 <img width="1896" height="873" alt="image" src="https://github.com/user-attachments/assets/7aa35ef4-9bf8-496e-87e9-feb3f1e0eab1" />
-
 
 ## How To Use
 
