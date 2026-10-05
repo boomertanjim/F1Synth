@@ -12,6 +12,8 @@ F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtron
 
 ## How To Use
 
+- Copy the text from `dist/uri.txt` and paste it in the browser search bar
+
 - There are three orbitals and each of them represent kick, snare and hi-hat from the smallest to largest
 
 - Each of these orbital can have smaller circles of different colors to them and they spin around the orbital
@@ -27,7 +29,7 @@ F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtron
 - Slider below the orbitals control circle spinning speed
 
 TL-DR:
-Click Grey Button, Circles move, they play notes when passing grey line, Click orbital to add new circles, click circles to delete them.
+Copy text from `dist/uri.txt`, Paste it in a browser search bar, Click Grey Button, Circles move, they play notes when passing grey line, Click orbital to add new circles, click circles to delete them.
 
 ## Building from Source
 
