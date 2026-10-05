@@ -33,7 +33,7 @@ Copy text from `dist/uri.txt`, Paste it in a browser search bar, Click Grey Butt
 
 ## Building from Source
 
-First, download node js from [this link](https://nodejs.org/en/download/current)
+First, download Node.js from [the official website](https://nodejs.org/en/download/current)
 
 Install Terser
 
@@ -41,9 +41,9 @@ Install Terser
 npm install --save-dev terser
 ```
 
-Download the src folder with the `index.html` file.
+Download the `src` folder with the `index.html` file inside.
 
-Download and put the `build.mjs` next to the src folder
+Download and put the `build.mjs` next to the `src` folder.
 
 Run this code
 
@@ -51,4 +51,4 @@ Run this code
 node build.mjs
 ```
 
-The URI file and the shrunk `index.html` file will be made in the dist folder
+The URI file and the shrunken `index.html` file will be made in the `dist` folder
