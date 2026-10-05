@@ -52,3 +52,7 @@ node build.mjs
 ```
 
 The URI file and the shrunken `index.html` file will be made in the `dist` folder
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
