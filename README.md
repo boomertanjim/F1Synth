@@ -12,6 +12,8 @@ F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtron
 
 ## How To Use
 
+- Copy the text from `dist/uri.txt` and paste it in the browser search bar
+
 - There are three orbitals and each of them represent kick, snare and hi-hat from the smallest to largest
 
 - Each of these orbital can have smaller circles of different colors to them and they spin around the orbital
@@ -27,11 +29,11 @@ F1Synth is a digital replica of the [Orbita by Playtonica](https://shop.playtron
 - Slider below the orbitals control circle spinning speed
 
 TL-DR:
-Click Grey Button, Circles move, they play notes when passing grey line, Click orbital to add new circles, click circles to delete them.
+Copy text from `dist/uri.txt`, Paste it in a browser search bar, Click Grey Button, Circles move, they play notes when passing grey line, Click orbital to add new circles, click circles to delete them.
 
 ## Building from Source
 
-First, download node js from [this link](https://nodejs.org/en/download/current)
+First, download Node.js from [the official website](https://nodejs.org/en/download/current)
 
 Install Terser
 
@@ -39,9 +41,9 @@ Install Terser
 npm install --save-dev terser
 ```
 
-Download the src folder with the `index.html` file.
+Download the `src` folder with the `index.html` file inside.
 
-Download and put the `build.mjs` next to the src folder
+Download and put the `build.mjs` next to the `src` folder.
 
 Run this code
 
@@ -49,4 +51,8 @@ Run this code
 node build.mjs
 ```
 
-The URI file and the shrunk `index.html` file will be made in the dist folder
+The URI file and the shrunken `index.html` file will be made in the `dist` folder
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
